@@ -33,8 +33,9 @@
 
 ### Association
 - belongs_to : user
-- belongs_to : order
+- has_one  : order
 - has_many : comments
+
 
 
 ## commentsテーブル
@@ -54,7 +55,6 @@
 | ------- | ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
-| address | references | null: false                    |
 
 ### Association
 - belongs_to : user
@@ -64,7 +64,7 @@
 ## addressesテーブル
 | Column        | Type       | Option                         |
 | ------------- | ---------- | -------------------------------|
-| post_id       | integer    | null: false                    |
+| post          | string     | null: false                    |
 | ship_from_id  | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
