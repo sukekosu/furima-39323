@@ -16,6 +16,6 @@ class User < ApplicationRecord
   NAME_REGEX = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/.freeze
   validates_format_of :family_name, :first_name, with: NAME_REGEX, message: 'には全角(漢字・ひらがな・カタカナ)で入力してください'
 
-  KANA_NAME_REGEX = /\A[ァ-ヶー-]+\z/.freeze
+  KANA_NAME_REGEX = /\A[ァ-ヶー]+\z/.freeze
   validates_format_of :kana_family_name, :kana_first_name, with: KANA_NAME_REGEX, message: 'には全角カタカナで入力してください'
 end
