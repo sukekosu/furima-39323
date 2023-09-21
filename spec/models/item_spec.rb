@@ -41,10 +41,15 @@ RSpec.describe Item, type: :model do
       it ':priceが半角数字以外だと登録できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Half-width number')
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
-      it ':priceが300~9999999の範囲外だと登録できない' do
+      it ':priceが300円未満では出品できない' do
         @item.price = '100'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
+      end
+      it ':priceが9_999_999円を超えると出品できない' do
+        @item.price = '10000000'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
@@ -72,6 +77,11 @@ RSpec.describe Item, type: :model do
         @item.delv_days_id = '0'
         @item.valid?
         expect(@item.errors.full_messages).to include('Delv days Select')
+      end
+      it 'userが紐付いていなければ出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
   end
