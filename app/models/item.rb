@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_many :orders
+  # has_many :orders
 
   # ActiveStorageのアソシエーション
   has_one_attached :image
@@ -15,7 +15,7 @@ class Item < ApplicationRecord
 
   # バリデーション
   validates :image, :name, :describe, :price, presence: true
-  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000, message: 'Out of setting range' }
+  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999, message: 'Out of setting range' }
   validates :category_id, numericality: { other_than: 0, message: 'Select' }
   validates :status_id, numericality: { other_than: 0, message: 'Select' }
   validates :delv_fee_id, numericality: { other_than: 0, message: 'Select' }
