@@ -15,7 +15,7 @@ class Item < ApplicationRecord
 
   # バリデーション
   validates :image, :name, :describe, :price, presence: true
-  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999, message: 'Out of setting range' }
+  validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   validates :category_id, numericality: { other_than: 0, message: 'Select' }
   validates :status_id, numericality: { other_than: 0, message: 'Select' }
   validates :delv_fee_id, numericality: { other_than: 0, message: 'Select' }
