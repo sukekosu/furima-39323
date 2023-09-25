@@ -64,7 +64,7 @@
 ## addressesテーブル
 | Column        | Type       | Option                         |
 | ------------- | ---------- | -------------------------------|
-| post          | string     | null: false                    |
+| post_code     | string     | null: false                    |
 | ship_from_id  | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
