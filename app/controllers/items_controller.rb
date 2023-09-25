@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
   end
 
   def sold_edit
-    if @item.orders.present?
+    if @item.order.present?
       redirect_to root_path
     end
   end
