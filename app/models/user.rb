@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
 
-  
   validates :nickname, :family_name, :first_name, :kana_family_name, :kana_first_name, :birthday, presence: true
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
