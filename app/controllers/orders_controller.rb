@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
   end
 
   def sold_order
-    if @item.order.present?
+    if @item.orders.present?
       redirect_to root_path
     end
   end
